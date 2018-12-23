@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:zzh="zzh">
+<head>
+<meta charset="UTF-8">
+<style type="text/css">
+pre {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+a {text-decoration: none;}
+a:visited {color:unset;}
+.expInp {
+	width:100%;
+	resize:none;
+	background-color:#eeeeee;
+	box-sizing:border-box;
+	vertical-align:bottom;
+	border:0;
+	padding:5px 14px;
+	margin-bottom:30px;
+}
+.inpArea {
+	display:table;
+	width:100%;
+}
+.inpArea div {
+	display:table-cell;
+	box-sizing:border-box;
+}
+.inpArea pre {
+	display:table-cell;
+	box-sizing:border-box;
+}
+.inpArea>:first-child {
+	width:10px;
+	background-color:#42a5f5;
+}
+.inpArea>:nth-child(2) {
+	border-bottom:solid 1px #42a5f5;
+}
+.inpArea>:nth-child(2)>:nth-child(2):hover svg {
+	fill:#42a5f5;
+}
+.inpArea>:nth-child(2)>:nth-child(3) {
+	padding-left:15px;/
+}
+.stuff {
+	height:15px;
+}
+.t1 {
+	color:#2196F3;
+}
+.c1 {
+	position: relative;
+	padding: 0 0 5px 0;
+	margin-bottom: 20px;
+	color:#2196F3;
+}
+.c2 {
+	color:#2196F3;
+}
+.c1>:nth-child(1)::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-bottom: solid 3px #2196F3;
+}
+details>:nth-child(2) {
+}
+</style>
+<!-- <script type="text/javascript" src="../js/u_tag.js"></script> -->
+<script type="text/javascript" src="../js/zxpression.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+
+<div style="width:1000px;margin:0 auto;">
+	<div id="leftView" style="width:200px;position:fixed;">
+		<details class="t1">
+			<summary><a href="#a0">简单介绍</a></summary>
+			<ul>
+				<li><a href="#a0">简单介绍</a></li>
+			</ul>
+		</details>
+		<div class="stuff"></div>
+		<details class="t1">
+			<summary><a href="#a1">怎么使用</a></summary>
+			<ul>
+				<li><a href="#a1">怎么使用</a></li>
+			</ul>
+		</details>
+		<div class="stuff"></div>
+		<details class="t1">
+			<summary><a href="#a2">简单的运算</a></summary>
+			<ul>
+				<li><a href="#a2">简单的运算</a></li>
+			</ul>
+		</details>
+		<div class="stuff"></div>
+		<details class="t1">
+			<summary><a href="#a3">一些语法糖</a></summary>
+			<ul>
+				<li><a href="#a3_0">数组切片</a></li>
+				<li><a href="#a3_1">链式比较</a></li>
+			</ul>
+		</details>
+		<div class="stuff"></div>
+		<details class="t1">
+			<summary><a href="#a4">其他注意点</a></summary>
+			<ul>
+				<li><a href="#a4">其他注意点</a></li>
+			</ul>
+		</details>
+	</div>
+	<div style="width:200px;height:1px;display:table-cell;"></div>
+	
+	<div id="rightView" style="width:800px;display:table-cell;">
+	
+		<!-- 简单介绍-->
+		<i id="a0"></i>
+		<div class="c1"><font>简单介绍</font></div>
+		<pre>测试版，没做异常处理，仅供尝鲜。支持一些常规（四则运算，比较，变量嵌套等）的运算，<font style="color:red;">暂不支持三目运算、后赋值运算（+=），</font>也不支持函数调用，稍后的版本可能会添加支持。支持数组切片和链式比较，可能会在以后的版本添加一些其他的语法支持（如果我没放弃的话）。</pre>
+		
+		<!-- 怎么使用 -->
+		<br><br>
+		<i id="a1"></i>
+		<div class="c1"><font>怎么使用</font></div>
+		<pre>通过new Zxpression(v1, v2)来创建对象。【v1】是需要解析的字符串，【v2】是【v1】里用到的变量的键值对。</pre>
+		<div class="inpArea">
+			<div></div>
+			<div>
+				<textarea class="expInp" rows="10">
+var param = {};
+param.var0 = 2;
+
+var str = "1 + var0++ + var1 + '  var0  ' + ++var0";    // var1在param里不存在，当作字符串来处理。
+
+var exp = new Zxpression(str, param);
+var result = exp.explain();
+				</textarea>
+				<div onclick="this.nextElementSibling.innerText=explain0(this.previousElementSibling.value)">
+					<svg style="height:1em;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+				</div>
+				<pre></pre>
+			</div>
+		</div>
+		
+		<!-- 简单的运算 -->
+		<br><br>
+		<i id="a2"></i>
+		<div class="c1"><font>简单的运算</font></div>
+		<pre>注意：此版本还不稳定，一些单目运算符请不要用空格隔开。如:【str = "- 1"】则可能会导致异常。</pre>
+		<font>例1：</font>
+		<div class="inpArea">
+			<div></div>
+			<div>
+				<textarea class="expInp" rows="10">
+str = "-1 + 2 * (( 3 + 4 ) * ( 5 + 6 )) + 0.9";
+				</textarea>
+				<div onclick="this.nextElementSibling.innerText=explain(this.previousElementSibling.value)">
+					<svg style="height:1em;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+				</div>
+				<pre></pre>
+			</div>
+		</div>
+		<font>例2：</font>
+		<div class="inpArea">
+			<div></div>
+			<div>
+				<textarea class="expInp" rows="10">
+param.var0 = {"k0": 2};
+
+str = "1 < var0.k0";
+				</textarea>
+				<div onclick="this.nextElementSibling.innerText=explain(this.previousElementSibling.value)">
+					<svg style="height:1em;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+				</div>
+				<pre></pre>
+			</div>
+		</div>
+		
+		<!-- 一些语法糖 -->
+		<br><br>
+		<i id="a3"></i>
+		<div class="c1"><font>一些语法糖</font></div>
+		<i id="a3_0"></i>
+		<div class="c2"><font>一些语法糖>数组切片</font></div>
+		<pre></pre>
+		<div class="inpArea">
+			<div></div>
+			<div>
+				<textarea class="expInp" rows="10">
+param.arr = ["a","b","c","d","e","f","g"];
+param.ind = [0,1,2,3];
+param.ind0 = [3,2,1,0];
+param.ind1 = [1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2];
+
+str = "arr[ind[-1]:ind[ind0[ind1[1+2*((1.5+2.5)*(1+1))]]]:-1]";
+				</textarea>
+				<div onclick="this.nextElementSibling.innerText=explain(this.previousElementSibling.value)">
+					<svg style="height:1em;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+				</div>
+				<pre></pre>
+			</div>
+		</div>
+		<i id="a3_1"></i>
+		<br>
+		<div class="c2"><font>一些语法糖>链式比较</font></div>
+		<pre>注意：链式比较暂不支持短路</pre>
+		<div class="inpArea">
+			<div></div>
+			<div>
+				<textarea class="expInp" rows="10">
+param.a1 = 2;
+param.a2 = 3;
+
+str = "1 <= a2 - a1 <= a1 <= a2 <= a1 + a2 <= 5";
+				</textarea>
+				<div onclick="this.nextElementSibling.innerText=explain(this.previousElementSibling.value)">
+					<svg style="height:1em;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+				</div>
+				<pre></pre>
+			</div>
+		</div>
+		
+		<!-- 其他注意点 -->
+		<br><br>
+		<i id="a4"></i>
+		<div class="c1"><font>其他注意点</font></div>
+		<pre>在使用变量时，由于每一个变量形式的字眼，都会在传入的变量集合里查找对应的变量。因此，有可能像【length】这样的，是变量集合里的属性，就会产生返回的值不是期望的值的结果，暂时可以通过添加引号来解决。
+如果有下一版，会针对此进行修复。
+		</pre>
+		<div class="inpArea">
+			<div></div>
+			<div>
+				<textarea class="expInp" rows="10">
+param.var0 = [1, 2, "请给【length】加上单引号"];
+param.length = 2;
+
+str = "var0.length";    // 得到【param】的是【length】属性（0）-> 【str = "var0.'length'"】。
+				</textarea>
+				<div onclick="this.nextElementSibling.innerText=explain(this.previousElementSibling.value)">
+					<svg style="height:1em;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+					<svg style="height:1em;margin-left:-10px;" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+						<path d="M256 87.04c-5.12-10.24-10.24-20.48 0-30.72 5.12-10.24 20.48-10.24 30.72-5.12l476.16 414.72-476.16 430.08c-10.24 5.12-20.48 5.12-30.72-5.12-5.12-10.24-5.12-20.48 0-30.72L696.32 460.8 256 87.04z"></path>
+					</svg>
+				</div>
+				<pre></pre>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+<div class="stuff"></div>
+
+<script type="text/javascript">
+function explain(val) {
+	var fun = new Function(val);
+	fun();
+	var exp = new Zxpression(str,param);
+	console.log(exp.explain());
+	return exp.result;
+}
+function explain0(val) {
+	var name = val.match(/var\s{1}(\w+)\s?=\s?new\s?\s?Zxpression/)[1];
+	val += "\nreturn " + name + ".result;";
+	var fun = new Function(val);
+	return fun();
+}
+(function() {
+	str = "";
+	param = {};
+})();
+</script>
+</body>
+</html>
